@@ -34,7 +34,7 @@ class GoogleAuthentication(TokenAuthentication):
             except crypt.AppIdentityError:
                 raise AuthenticationFailed('Invalid token.')
 
-        user, created = User.objects.get_or_create(username=email)
+        user, created = User.objects.get_or_create(email=email)
         self.request.session['token'] = token
         self.request.session['email'] = email
         return (user, token)
