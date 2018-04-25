@@ -15,7 +15,8 @@ import environ
 
 env = environ.Env(
     DEBUG=(bool, False),
-    SECRET_KEY=(str, 'thisIsMyFallbackSecretKey-pry5nl4+(89)f9(a$l^_^=&=wx2i7tg87m8d8*4bka!vv7-(!5')
+    SECRET_KEY=(str, 'thisIsMyFallbackSecretKey-pry5nl4+(89)f9(a$l^_^=&=wx2i7tg87m8d8*4bka!vv7-(!5'),
+    GOOGLE_CLIENT_ID=(str, ''),
 )
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -130,7 +131,7 @@ STATIC_URL = '/static/'
 
 APPEND_SLASH = False
 
-GOOGLE_CLIENT_ID = ''
+GOOGLE_CLIENT_ID = env('GOOGLE_CLIENT_ID')
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
