@@ -4,3 +4,4 @@ base:
     - locale
     - postgresql
     - python
+    - heroku

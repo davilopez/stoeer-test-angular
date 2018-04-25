@@ -184,3 +184,6 @@ CORS_EXPOSE_HEADERS = (
     'origin',
     'authorization'
 )
+
+import django_heroku
+django_heroku.settings(locals())
