@@ -17,6 +17,8 @@ env = environ.Env(
     DEBUG=(bool, False),
     SECRET_KEY=(str, 'thisIsMyFallbackSecretKey-pry5nl4+(89)f9(a$l^_^=&=wx2i7tg87m8d8*4bka!vv7-(!5'),
     GOOGLE_CLIENT_ID=(str, ''),
+    DJANGO_LOG_LEVEL=(str, 'ERROR'),
+    DEFAULT_LOG_LEVEL=(str, 'ERROR'),
 )
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -90,9 +92,13 @@ LOGGING = {
         },
     },
     'loggers': {
+        '': {
+            'handlers': ['console'],
+            'level': env('DEFAULT_LOG_LEVEL'),
+        },
         'django': {
             'handlers': ['console'],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'ERROR'),
+            'level': env('DJANGO_LOG_LEVEL'),
         },
     },
 }
