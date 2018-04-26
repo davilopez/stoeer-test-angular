@@ -86,6 +86,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(name)s %(filename)s:%(lineno)d %(funcName)s %(process)d '
+                      '%(thread)d %(message)s',
+        },
+    },
     'handlers': {
         'console': {
             'class': 'logging.StreamHandler',
@@ -95,10 +101,12 @@ LOGGING = {
         '': {
             'handlers': ['console'],
             'level': env('DEFAULT_LOG_LEVEL'),
+            'formatter': 'verbose',
         },
         'django': {
             'handlers': ['console'],
             'level': env('DJANGO_LOG_LEVEL'),
+            'formatter': 'verbose',
         },
     },
 }
