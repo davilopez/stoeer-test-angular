@@ -87,26 +87,36 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
+        'standard': {
+            'format': '[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s',
+            'datefmt': '%d/%b/%Y %H:%M:%S',
+        },
         'verbose': {
             'format': '%(levelname)s %(name)s %(filename)s:%(lineno)d %(funcName)s %(process)d '
                       '%(thread)d %(message)s',
         },
     },
     'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
         'console': {
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
         },
     },
     'loggers': {
         '': {
             'handlers': ['console'],
             'level': env('DEFAULT_LOG_LEVEL'),
-            'formatter': 'verbose',
+            'propagate': True,
         },
         'django': {
             'handlers': ['console'],
             'level': env('DJANGO_LOG_LEVEL'),
-            'formatter': 'verbose',
+            'propagate': True,
         },
     },
 }
