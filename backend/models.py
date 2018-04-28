@@ -11,8 +11,9 @@ class SystemUser(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
-    email = models.EmailField(_('Email address'), unique=True)
-    password = models.CharField(_('Password'), max_length=128, blank=True, null=True)
+    email = models.EmailField(_('email address'), unique=True)
+    username = models.CharField(_('username'), max_length=150, blank=True)
+    password = models.CharField(_('password'), max_length=128, blank=True, null=True)
 
     class Meta:
         verbose_name = 'Admin User'
