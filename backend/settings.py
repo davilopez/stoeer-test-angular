@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import environ
+import django_heroku
 
 env = environ.Env(
     DEBUG=(bool, False),
@@ -125,7 +126,7 @@ LOGGING = {
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db()
+    'default': env.db(default='postgres://vagrant:vagrant@localhost:5432/vagrant')
 }
 
 
@@ -225,5 +226,4 @@ CORS_EXPOSE_HEADERS = (
     'authorization'
 )
 
-import django_heroku
-django_heroku.settings(locals())
+django_heroku.settings(locals(), databases=False)
