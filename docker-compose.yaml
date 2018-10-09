@@ -16,6 +16,7 @@ services:
       HISTFILE: /app/.bash_history
       PYTHONDONTWRITEBYTECODE: 'x'
       PYTHONWARNINGS: default
+      DEBUG: 'True'
     networks:
       regiohelden:
         aliases:
