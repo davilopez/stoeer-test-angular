@@ -126,7 +126,7 @@ LOGGING = {
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db(default='postgres://vagrant:vagrant@localhost:5432/vagrant')
+    'default': env.db(default='postgres://app:app@testcase-db:5432/app')
 }
 
 

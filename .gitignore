@@ -10,3 +10,4 @@ venv
 staticfiles
 /*.log
 bootstrap-salt.sh
+.bash_history
