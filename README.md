@@ -8,11 +8,7 @@
 ## Docker name resolution
 
 In order to access the application on your browser, your host machine must be able to resolve the host name of your container.
-We're using docker-hostmanager to manage the hosts file entries for all docker-compose environments.
-
-```
-$ docker run -d --name docker-hostmanager --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /etc/hosts:/hosts iamluc/docker-hostmanager
-```
+We're using docker-etchosts to manage the hosts file entries. Check [GitHub](https://github.com/RegioHelden/docker-common) on how to set up our docker development environment.
 
 Setup
 =====
