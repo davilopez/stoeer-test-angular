@@ -201,7 +201,7 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = (
-    'localhost:9000',
+    'http://testcase.rh-dev.eu:8001',
 )
 CORS_ALLOW_METHODS = (
     'GET',
