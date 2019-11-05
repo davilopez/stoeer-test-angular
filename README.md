@@ -10,8 +10,7 @@
 In order to access the application on your browser, your host machine must be able to resolve the host name of your container.
 We're using docker-etchosts to manage the hosts file entries. Check [GitHub](https://github.com/RegioHelden/docker-common) on how to set up our docker development environment.
 
-Setup
-=====
+# Setup
 
 * Copy the repository content (please don't fork it so that there is no link to forked repositories someone might look up the solution at)
 * Start the containers ```docker-compose up``` 
@@ -21,16 +20,34 @@ Setup
 * Implement the frontend against the API
 * Extend the readme on how to build and run the frontend, the JS frontend webserver should run on port 8001 (http://testcase.rh-dev.eu:8001)
 
-Authorization
-=============
+# Authorization
 
 The OAuth token generated on the client side must be sent with each request to the server in the Authorization header.
 
 ```Authorization: Token thisIsMyOAuthToken```
 
-API endpoints
-=============
+# API endpoints
 
 The API provides GET, PUT, POST, PATCH, DELETE and OPTIONS to manage all user related needs
 
 http://testcase.rh-dev.eu:8000/api/users to list and http://testcase.rh-dev.eu:8000/api/users/{id} to manage single users
+
+# Contribute
+
+## Requirements upgrades
+
+Check for upgradeable packages by running 
+```bash
+docker-compose up -d
+docker-compose exec django pip-check
+```
+
+## Making a new release
+
+[bumpversion](https://github.com/peritus/bumpversion) is used to manage releases.
+
+Add your changes to the [CHANGELOG](./CHANGELOG.rst), run
+```bash
+docker-compose exec django bumpversion <major|minor|patch>
+```
+then push (including tags).
